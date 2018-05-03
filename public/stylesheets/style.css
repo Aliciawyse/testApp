@@ -9,6 +9,15 @@ h2 {
 }
 
 #userList {
-  width: 50%;
-  margin: 0 auto;
+  width: 40%;
+  display: inline-block;
+}
+
+#characterFrequency {
+  width:25%;
+}
+
+#hidden {
+  display: inline-block;
+
 }
