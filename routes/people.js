@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var request = require('request');
 
-/* GET people listing. */
+/* GET records of people as JSON output*/
 router.get('/peoplelist', function(req, res) {
 
     request({
@@ -12,7 +12,8 @@ router.get('/peoplelist', function(req, res) {
     }, function (error, response, body){
 
         if(!error && response.statusCode == 200){
-            res.render('people', {peoplelist: JSON.parse(body).data});
+
+            res.json(body);
         }
     })
 });

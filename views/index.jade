@@ -4,15 +4,17 @@ block content
   h1 Alicia's Demo
   p This skeleton app uses SalesLoft's API!
 
-  p.
-    If you take a look at #[a(target="_blank", href="http://localhost:3000/people/peoplelist") this page],
-    you'll see several records of people.
-
   p Click the button below to displays a frequency count of all the unique characters in all the email addresses of all the People you have access to, sorted by frequency count (the count below).
 
-  button(onclick='something()') Click
+  button(onclick='populateTable()') Click this button!
 
-  script.
-      var something = function () {
-          console.log('something')
-      }
+  // USER LIST
+  #userList
+    h2 List of people records
+    table.table.is-bordered.is-striped.is-fullwidth
+      thead
+        th first_name
+        th email_address
+        th title
+      tbody
+   // /USER LIST

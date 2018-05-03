@@ -1,8 +1,14 @@
-body {
-  padding: 50px;
+
+html {
+  margin: 5%;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+h2 {
+  margin:0 0 .5em 0;
+}
+
+#userList {
+  width: 50%;
+  margin: 0 auto;
 }
