@@ -1,29 +1,30 @@
 extends layout
 
 block content
-  h1 Alicia's Demo
-  p This skeleton app uses SalesLoft's API!
-
-  p Click the button below to displays a frequency count of all the unique characters in all the email addresses of all the People you have access to, sorted by frequency count (the count below).
-
-  button(onclick='populateTable()') Click this button!
+  h1.has-text-weight-bold.is-size-1.has-text-centered Using the SalesLoft API
+  p.has-text-centered By Alicia Barrett
 
   // USER LIST
   #userList
-    h2 List of people records
+    h2 Level 1: Show a list of People records available via the API.  Display each Person’s name, email address, and job title.
     table.table.is-bordered.is-striped.is-fullwidth
       thead
         th first_name
         th email_address
-        th title
+        th job_title
       tbody
    // /USER LIST
 
+  // CHARACTER FREQUENCY
+  h2 Level 2: Create a button that, when clicked, displays a frequency count of all the unique characters in all the email addresses of all the People you have access to, sorted by frequency count (the count below).
+
+  button(onclick='populateTable()').button.is-success.is-large Show me!
   #hidden
     #characterFrequency
-      h2 List of characters sorted in descending order
       table.table.is-bordered.is-striped.is-fullwidth
         thead
           th character
           th count
         tbody
+   // /CHARACTER FREQUENCY
+

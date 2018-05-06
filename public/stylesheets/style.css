@@ -1,20 +1,26 @@
 
-html {
-  margin: 5%;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+body {
+  margin: 4% 20% 4% 20%;
+  font-size: 27px;
+  font-family: "Times New Roman", Times, serif;
 }
 
 h2 {
-  margin:0 0 .5em 0;
+  margin: 1% 0% 1% 0%;
+  background: lightcyan;
+}
+
+.button {
+  display: block;
+  margin: 0 auto;
 }
 
 #userList {
-  width: 40%;
-  display: inline-block;
+  display: block;
+  margin-top: 2%;
 }
 
 #characterFrequency {
-  width:25%;
 }
 
 #hidden {

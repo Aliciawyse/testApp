@@ -43,6 +43,7 @@ function populateTable() {
         success: function(data){
 
             data = JSON.parse(data).data;
+            console.log(data);
 
             var freq = {};
 
