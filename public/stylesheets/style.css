@@ -21,9 +21,11 @@ h2 {
 }
 
 #characterFrequency {
+  width: 35%;
+  margin: 0 auto;
+  margin-top: 2%;
 }
 
-#hidden {
-  display: inline-block;
-
+.hidden {
+  visibility: hidden;
 }
