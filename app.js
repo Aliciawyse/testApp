@@ -1,15 +1,20 @@
+// ==============================================================================
+// DEPENDENCIES
+// Series of npm packages that we will use to give our server useful functionality
+// ==============================================================================
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
-var indexRouter = require('./routes/index');
-var peopleRouter = require('./routes/people');
-
-var app = express();
-
 require('dotenv').config();
+
+
+// ==============================================================================
+// EXPRESS CONFIGURATION
+// This sets up the basic properties for our express server
+// ==============================================================================
+var app = express();
 
 
 // view engine setup
@@ -22,6 +27,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// ================================================================================
+// ROUTER
+// The below points our server to a series of "route" files.
+// These routes give our server a "map" of how to respond when users visit or request data from various URLs.
+// ================================================================================
+
+var indexRouter = require('./routes/index');
+var peopleRouter = require('./routes/people');
 
 app.use('/', indexRouter);
 app.use('/people', peopleRouter);

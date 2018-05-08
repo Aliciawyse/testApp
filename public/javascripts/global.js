@@ -1,17 +1,14 @@
-// Userlist data array for filling in info box
 
 // DOM Ready =============================================================
 $(document).ready(function() {
 
-    // Populate the user table on initial page load
-    showList();
+    // Display each Person’s name, email address, and job title on initial page load
+    showPeopleRecords();
 
 });
 
 // Functions =============================================================
-
-//show list
-function showList(){
+function showPeopleRecords(){
 
     $.ajax({
         url: '/people/peoplelist',
@@ -34,8 +31,7 @@ function showList(){
     });
 }
 
-function populateTable() {
-
+function findCharacterFrequency() {
 
     $.ajax({
         url: '/people/peoplelist',
@@ -43,7 +39,6 @@ function populateTable() {
         success: function(data){
 
             data = JSON.parse(data).data;
-            console.log(data);
 
             var freq = {};
 
@@ -65,7 +60,6 @@ function populateTable() {
                 }
             }
 
-            //
             var keys2 = Object.keys(freq);
 
             keys2.sort(function(a, b) { return freq[b] - freq[a] });
@@ -73,7 +67,7 @@ function populateTable() {
             var secondTableContent='';
 
             for(var i=0; i < keys2.length; i++){
-                console.log(keys2[i],freq[keys2[i]]);
+               // console.log(keys2[i],freq[keys2[i]]);
 
                     secondTableContent += '<tr>';
                     secondTableContent += '<td>' + keys2[i] + '</td>';
@@ -90,18 +84,14 @@ function populateTable() {
 
 var dupTracker = [];
 
-
 function oneEditAway(firstString, secondString){
     if(firstString.length === secondString.length){
-        console.log("replacing");
         return oneEditReplace(firstString, secondString);
     }
     else if (firstString.length + 1 === secondString.length){
-        console.log("apple vs aple");
         return oneEditInsert(firstString, secondString);
     }
     else if (firstString.length - 1 === secondString.length){
-        console.log("aple vs apple -- this is an example of removal");
         return oneEditInsert(secondString, firstString);
     }
     return false
@@ -140,7 +130,6 @@ function oneEditInsert(firstString, secondString){
     return true;
 }
 
-
 function compareEmails(){
 
     $.ajax({
@@ -162,7 +151,6 @@ function compareEmails(){
                     }
                 }
             }
-            console.log(dupTracker);
 
             if(dupTracker.length === 0){
                 $('#duplicates p').html("There are no potential duplicates.")
