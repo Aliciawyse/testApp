@@ -16,21 +16,24 @@ require('dotenv').config();
 // ==============================================================================
 var app = express();
 
+// app configuration
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(logger('dev'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-// app configuration
-app.use(logger('dev'));
+
+// sets up the Express app to handle data parsing
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 // ================================================================================
 // ROUTER
-// The below points our server to a series of "route" files.
+// The code below points our server to a series of "route" files.
 // These routes give our server a "map" of how to respond when users visit or request data from various URLs.
 // ================================================================================
 
