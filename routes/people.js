@@ -1,19 +1,14 @@
-// ==============================================================================
-// DEPENDENCIES
-// ==============================================================================
+// load express module
 var express = require('express');
+// use express module to get an express.Router object which we specify a route on
 var router = express.Router();
 var request = require('request');
 
 // ===============================================================================
 // ROUTING
+//The route defines a callback that will be invoked whenever an HTTP GET request with the correct pattern is detected. This route will be used when a URL of people/peoplelist is received. The route renders a JSON response from hitting SalesLoft's /v2/people.json endpoint
 // ===============================================================================
 router.get('/peoplelist', function(req, res) {
-
-    // API GET Requests
-    // Below code handles when users visit http://localhost:3000/people/peoplelist
-    // They will see the JSON response from hitting SalesLoft's /v2/people.json endpoint
-
     request({
         method: 'GET',
         uri: 'https://api.salesloft.com/v2/people.json',

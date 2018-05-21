@@ -8,6 +8,8 @@ $(document).ready(function() {
 });
 
 // Functions =============================================================
+
+// fill table with name, email address and job title
 function showPeopleRecords(){
 
     $.ajax({
@@ -18,6 +20,7 @@ function showPeopleRecords(){
              data = JSON.parse(data).data;
              var tableContent='';
 
+            // for each item in our JSON, add a table row & cells to the tableContent string
             $.each(data, function(){
                 tableContent += '<tr>';
                 tableContent += '<td>' + this.first_name + ' ' + this.last_name + '</td>';
@@ -26,11 +29,13 @@ function showPeopleRecords(){
                 tableContent += '</tr>';
             });
 
+            // Inject the tableContent string in our table
             $('#userList table tbody').html(tableContent);
         }
     });
 }
 
+// fill table with frequency count of all the unique characters
 function findCharacterFrequency() {
 
     $.ajax({
@@ -42,17 +47,21 @@ function findCharacterFrequency() {
 
             var freq = {};
 
-            //for every record
+            // for each item in our JSON
+            // store email address in variable
             for (var i=0; i<data.length;i++) {
-
-                //grab email
                 var email = data[i].email_address;
 
-                //parse email
+                // for every character in that email address
+                // if the value of `freq[character]` is truthy -- use bracket notation
+                // to increment the value of that corresponds to `freq[character]`
+                // if the value of `freq[character]` is falsey (ie: undefined, 0, null, etc.),
+                // use bracket notation to add the character as new key and 1 as its value
+                // Cite: https://stackoverflow.com/questions/1168807/how-can-i-add-a-key-value-pair-to-a-javascript-object
                 for(var y=0; y < email.length; y++){
-
                     if(freq[email[y]]){
-                        freq[email[y]] = freq[email[y]] + 1;
+                        //
+                        freq[email[y]]++;
                     }
                     else {
                         freq[email[y]] = 1;
@@ -60,15 +69,17 @@ function findCharacterFrequency() {
                 }
             }
 
+            // An array-like object that contains the names of the enumerable properties and methods of the object.
             var keys2 = Object.keys(freq);
 
+            // we sort comparing the values in the original object, from largest to smallest using the sort function's compare function
             keys2.sort(function(a, b) { return freq[b] - freq[a] });
 
             var secondTableContent='';
 
+            // add each character to secondTableContent & retrieve the associated values, then inject that into our existing table
+            //
             for(var i=0; i < keys2.length; i++){
-               // console.log(keys2[i],freq[keys2[i]]);
-
                     secondTableContent += '<tr>';
                     secondTableContent += '<td>' + keys2[i] + '</td>';
                     secondTableContent += '<td>' + freq[keys2[i]] + '</td>';
@@ -78,6 +89,8 @@ function findCharacterFrequency() {
             }
         }
     });
+
+    // show table once it's populated
     $("div").removeClass("hidden");
 
 }

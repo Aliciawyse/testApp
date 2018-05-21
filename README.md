@@ -34,13 +34,18 @@ Level 3:  Create a 2nd button that would show us a list of suggested possible du
 
 ### 2. Process
 
-To get setup, I  installed [node.js](https://nodejs.org/en/) and node package manager (npm). Then I installed Express Generator with `npm install -g express-generator`. Next, I type `express testApp` to create a skeleton app. In the `testApp` directory, I type `npm install` to install all of the dependencies in `package.json`. 
+To get setup, I  installed [node.js](https://nodejs.org/en/) and node package manager (npm). Then I installed Express Generator with `npm install -g express-generator`. Next, I type `express testApp` to create a skeleton app called testApp. In the `testApp` directory, I type `npm install` to install all of the dependencies in `package.json`. 
+
+A template engine called Jade comes with using express generator. My base template is `views\layout.jade`. In the base template I include: Bulma, my css stylesheet, jQuery and an external script file called `global.js`.
+ 
+ This base template is the most basic template that I extend on every page of my app. For example, I extend `layout.jade` in `views\index.jade` which is where most of the app's look is built.
+
 
 The file `app.js` is the heart of this skeleton app. This is where express is set up. 
 
-Express supports a template engine called Jade. My base template is `views\layout.jade`. A base template is the most basic template that I extend on every page of my website. Taking advantage of my base template, I extend it and create `views\index.jade`. 
-
 Static files in `/public/javascripts` and  `/public/stylesheets` help provide some interactivity on the website and style. 
+
+
  
 Side note: You can go to [http://localhost:3000/people/peoplelist](http://localhost:3000/people/peoplelist) to see the JSON output that we'll manipulate.
  
@@ -51,6 +56,12 @@ Side note: You can go to [http://localhost:3000/people/peoplelist](http://localh
 - At first, in `routes/people.js` I used `res.render` to output JSON to the `people.jade` template. When I moved on to Level Two, I realized that, with my current set up, I would have to make another GET request. That seemed repetitive. Using `res.json` allows me to make one GET request and use its JSON response elsewhere in my app. 
 
 - A major challenge was thinking of an approach to level 3. But, that was until I came across a very helpful example in [Cracking the Coding Interview](http://www.crackingthecodinginterview.com/). The book's One Away example offers a guide for checking if two strings are more than one edit or zero edits away. I figured this was a great starting point for checking for duplicates. 
+
+- Writing code to accomplish the level 1, 2 and 3 tasks is one thing. It is challenging to re-approach this and think about how I can write testable javascript code. 
+
+- Understanding how to reduce pollution of the global namespace
+
+- inability to submit the form programmatically without using a synthetic event.
 
 
 ### 4. Future additions
