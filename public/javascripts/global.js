@@ -128,8 +128,10 @@ function oneEditAway(firstString, secondString){
 // check if each index in firstString is distinct from the corresponding index in secondString.
 // "a b d" compared with "a c d"
 //    ^                     ^
-// if true & foundDifference is false then return true and
+// if true & foundDifference is false then
 // push the two strings to our dupTracker list
+// change our foundDifference flag to true
+// return true
 function oneEditReplace(firstString, secondString){
 
     var foundDifference = false;
@@ -145,7 +147,26 @@ function oneEditReplace(firstString, secondString){
     return true;
 }
 
-// this function will check if we can insert a character into the firstString to make secondString
+// this function will check the difference between the firstString to make secondString is some additional or missing character. Here's an example of what should happen
+
+// a b c   compared to   d a b c
+// ^                     ^
+// increase index2 only
+
+// a b c   compared to   d a b c
+// ^                       ^
+// increase index1 and index2
+
+// a b c   compared to   d a b c
+//   ^                       ^
+// increase index1 and index2 again
+
+// a b c   compared to   d a b c
+//     ^                       ^
+// increase index1 and index2
+// and our while loop will stop.
+
+
 function oneEditInsert(firstString, secondString){
 
     // create index pointers for each string
@@ -153,20 +174,17 @@ function oneEditInsert(firstString, secondString){
     var index1 = 0;
     var index2 = 0;
 
+    // we will stop this while loop when index1 or index2 hits the length of its string,
+    // otherwise it would cause an index out of bound error
 
-    // while index2 is less than the length of the secondString AND
-    // index1 is less than the length of the firstString
-    // check if each character in firstString does not match each character in secondString
-    //      if true then check if index1 and index2 are not the same. If true return false
-    //      if false then increment index1 and index2
     while (index2 < secondString.length && index1 < firstString.length){
         // if the characters are not the same
         if (firstString.charAt(index1) !== secondString.charAt(index2)){
             // check if pointers are different
+            // that would indicate we already met a difference
             if (index1 !== index2){
                 return false;
             }
-            // move the second pointer only
             index2++;
         } else {
             // if characters are the same, move both pointers
@@ -177,6 +195,7 @@ function oneEditInsert(firstString, secondString){
     dupTracker.push(firstString, secondString);
     return true;
 }
+
 
 function compareEmails(){
 
