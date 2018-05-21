@@ -56,7 +56,7 @@ Side note: You can go to [http://localhost:3000/people/peoplelist](http://localh
 
 - A major challenge was thinking of an approach to level 3. But, that was until I came across a very helpful example in [Cracking the Coding Interview](http://www.crackingthecodinginterview.com/). The book's One Away example offers a guide for checking if two strings are more than one edit or zero edits away. I figured this was a great starting point for checking for duplicates. 
 
-- Writing code to accomplish the level 1, 2 and 3 tasks is one thing. It is challenging to re-approach this and think about how I can write testable javascript code. 
+- Writing code to accomplish the level 1, 2 and 3 tasks is one thing. But the way I have written the code makes it difficult to test.
 
 - Understanding how to reduce pollution of the global namespace
 
@@ -65,7 +65,8 @@ Side note: You can go to [http://localhost:3000/people/peoplelist](http://localh
 
 ### 4. Future additions
 
-- Improve the way results display
-- Add tests 
-- Improve code in `global.js` to avoid repeating code
-- Use javaScript ES6
+- refactor to make more modular and avoid polluting global space. 
+- separate event handlers from the action it performs so that I can make the logic testable
+- add tests 
+- avoid repeating code in `global.js`
+- use javaScript ES6
