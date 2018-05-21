@@ -45,7 +45,6 @@ The file `app.js` is the heart of this skeleton app. This is where express is se
 
 Static files in `/public/javascripts` and  `/public/stylesheets` help provide some interactivity on the website and style. 
 
-
  
 Side note: You can go to [http://localhost:3000/people/peoplelist](http://localhost:3000/people/peoplelist) to see the JSON output that we'll manipulate.
  

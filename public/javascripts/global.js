@@ -95,22 +95,43 @@ function findCharacterFrequency() {
 
 }
 
+// The code below helps us find potential duplicates. My definition of a duplicate means that two strings are one insertion, replacement or removal away from each other. And is taken from the Cracking the Coding Interview book.
+
+// Replacement: Consider "bale" and "pale". The two strings are only different in one place.
+
+// Insertion: Consider "apple" and "aple". These two strings are an insertion away from being identical. If you compared the strings, they would be identical , except for a shift at some point in the strings.
+
+// Removal: "apple" and "aple" are one removal away. Or the opposite of insertion
+
+
 var dupTracker = [];
 
+// checking the lengths will indicate which of these we need to check.
 function oneEditAway(firstString, secondString){
     if(firstString.length === secondString.length){
         return oneEditReplace(firstString, secondString);
     }
+    else if (firstString.length - 1 === secondString.length) {
+        // secondString is the shorter string and it should
+        // get passed as the first param in our function
+        return oneEditInsert(secondString, firstString);
+    }
     else if (firstString.length + 1 === secondString.length){
         return oneEditInsert(firstString, secondString);
     }
-    else if (firstString.length - 1 === secondString.length){
-        return oneEditInsert(secondString, firstString);
-    }
+
+    // if none of the options above are true then it's likely that
+    // we do not have a duplicate.
     return false
 }
 
+// check if each index in firstString is distinct from the corresponding index in secondString.
+// "a b d" compared with "a c d"
+//    ^                     ^
+// if true & foundDifference is false then return true and
+// push the two strings to our dupTracker list
 function oneEditReplace(firstString, secondString){
+
     var foundDifference = false;
     for(var i = 0; i < firstString.length; i++){
         if(firstString.charAt(i) !== secondString.charAt(i)){
@@ -124,17 +145,31 @@ function oneEditReplace(firstString, secondString){
     return true;
 }
 
+// this function will check if we can insert a character into the firstString to make secondString
 function oneEditInsert(firstString, secondString){
+
+    // create index pointers for each string
+    // starting at 0 for both
     var index1 = 0;
     var index2 = 0;
 
+
+    // while index2 is less than the length of the secondString AND
+    // index1 is less than the length of the firstString
+    // check if each character in firstString does not match each character in secondString
+    //      if true then check if index1 and index2 are not the same. If true return false
+    //      if false then increment index1 and index2
     while (index2 < secondString.length && index1 < firstString.length){
+        // if the characters are not the same
         if (firstString.charAt(index1) !== secondString.charAt(index2)){
+            // check if pointers are different
             if (index1 !== index2){
                 return false;
             }
+            // move the second pointer only
             index2++;
         } else {
+            // if characters are the same, move both pointers
             index1++;
             index2++;
         }
