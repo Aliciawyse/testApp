@@ -79,7 +79,7 @@ Side note: You can go to [http://localhost:3000/people/peoplelist](http://localh
 
 - JSON: stands for Javascript Object Notation and is a lightweight data-interchange format used to correlate keys with values
 
-- jQuery: 
+- jQuery: a JavaScript Library that makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API 
 
 - AJAX: a jquery method to retrieve data that stands for Asynchronous JavaScript And XML.
 
@@ -100,7 +100,5 @@ Side note: You can go to [http://localhost:3000/people/peoplelist](http://localh
 - What is Middleware? software that lies between an operating system and the applications running on it. 
 
 - What is full stack web development? the concept of building every aspect of the web application – from the visuals and interactions, to the data transfer and processing. In modern web applications there is a constant back-and-forth communication between the visuals displayed on the user’s browser (frontend) and the data and logic stored on the server (backend).
-
-
 
 

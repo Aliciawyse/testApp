@@ -69,7 +69,7 @@ function showPeopleRecords(){
                     this.last_name = '';
                 }
 
-
+                // build table
                 tableContent += '<tr>';
                 tableContent += '<td>' + this.first_name + ' ' + this.last_name + '</td>';
                 tableContent += '<td>' + this.email_address + '</td>';
