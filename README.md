@@ -10,6 +10,7 @@ Alicia
 
 * javaScript ES5
 * jQuery
+* validate.js
 * node.js
 * express
 * node package manager (npm)
@@ -23,6 +24,7 @@ Alicia
 * [2. Process](#2-process)
 * [3. Challenges and Successes!](#3-challenges-and-successes)
 * [4. Future Additions](#4-future-additions)
+* [5. Key concepts covered](#5-key-concepts-covered)
 
 ### 1. Assignment
 
@@ -70,3 +72,35 @@ Side note: You can go to [http://localhost:3000/people/peoplelist](http://localh
 - add tests 
 - avoid repeating code in `global.js`
 - use javaScript ES6
+
+### 5. Key concenpts covered
+
+- What is an API? An Application Programming Interface (API) offers a set of pre-defined routines, code snippets, and tools for building software applications. The SalesLoft API parses URL parameters to provide specific JSON
+
+- JSON: stands for Javascript Object Notation and is a lightweight data-interchange format used to correlate keys with values
+
+- jQuery: 
+
+- AJAX: a jquery method to retrieve data that stands for Asynchronous JavaScript And XML.
+
+- What two parameters do we pass into AJAX to retrieve data from online? `url` and `method:GET`
+
+- What is a “server”? A web server takes a client request and gives something back
+
+- What is a web client? Web client lets the user request something on the server and then shows the result (response) of the server.
+
+- What is HTTP? Clients and Servers communicate back and forth using a series of understood communications defined by HTTP / HTTPs. 
+
+- What is NodeJS? An open-source, cross-platform, runtime environment that allows developers to create all kinds of server-side tools
+
+- What is a runtime environment? 
+
+- What is Express? A Node module that used in this project to start a server, respond to requests, set up routes, use a view engine.
+
+- What is Middleware? software that lies between an operating system and the applications running on it. 
+
+- What is full stack web development? the concept of building every aspect of the web application – from the visuals and interactions, to the data transfer and processing. In modern web applications there is a constant back-and-forth communication between the visuals displayed on the user’s browser (frontend) and the data and logic stored on the server (backend).
+
+
+
+

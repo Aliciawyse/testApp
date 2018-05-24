@@ -12,6 +12,31 @@ $(document).ready(function() {
 // fill table with name, email address and job title
 function showPeopleRecords(){
 
+    // Use validate.js library to set up constraint
+    // on emails
+    var emailErrorExist = false;
+    var nameErrorExist = false;
+    var constraints = {
+        from: {
+            email: {
+                message: function(){
+                    console.log("Valid email address not found");
+                    return errorExist = true;
+                }
+            }
+        },
+        subdomain: {
+            exclusion: {
+                within: ["<", ">", "%"],
+                message: function(){
+                    console.log("Valid name not found");
+                    return nameErrorExist = true;
+                }
+            }
+        }
+    };
+
+
     $.ajax({
         url: '/people/peoplelist',
         dataType: 'json',
@@ -22,6 +47,29 @@ function showPeopleRecords(){
 
             // for each item in our JSON, add a table row & cells to the tableContent string
             $.each(data, function(){
+
+                // Uncomment this code to verify email validator is working.
+                // this.email_address = "<script>";
+                // this.first_name = "<";
+
+
+                // validate takes in an object that is checked
+                // against the constraint we set up earlier
+                validate({from: this.email_address}, constraints);
+                validate({subdomain: this.first_name}, constraints);
+                validate({subdomain: this.last_name}, constraints);
+
+
+                if (emailErrorExist){
+                    this.email_address = "No valid email address found.";
+                }
+
+                if(nameErrorExist){
+                    this.first_name = 'Valid full name not found';
+                    this.last_name = '';
+                }
+
+
                 tableContent += '<tr>';
                 tableContent += '<td>' + this.first_name + ' ' + this.last_name + '</td>';
                 tableContent += '<td>' + this.email_address + '</td>';
